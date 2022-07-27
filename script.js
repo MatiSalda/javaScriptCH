@@ -16,17 +16,20 @@ function calcularEnvio(){
            
        }   else if (ciudad == 4) {
         break
+
        }else{
+
         alert ("Ingrese una opción correcta")
        }
     
     } while (ciudad !=4); 
 }
 
+
 let menu
 let nombre
 do {
-    menu= parseInt(prompt("Bievenido al sistema de presupuesto de envios, elija la opcion que desee.\n\n 1.Ingresar cuenta \n 2.Empresas de envio \n 3 Consultas \n 4. Salir de la aplicacion"))
+    menu= parseInt(prompt("Bienvenido al sistema de presupuesto de envios, elija la opcion que desee.\n\n 1.Ingresar cuenta \n 2.Empresas de envio \n 3 Consultas \n 4. Salir de la aplicacion"))
     
     switch(menu){
         case 1:
@@ -39,6 +42,9 @@ do {
         
         case 3:
             prompt("Envie su consulta y en la brevedad sera respondida.")
+            break
+        
+        case 4:
             break
     }
 
