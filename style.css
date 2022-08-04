@@ -1,0 +1,23 @@
+body {
+    background-color: bisque;
+}
+
+h1 {
+    text-align: center;
+    background-color: aquamarine;
+    width: 30%;
+    border-radius: 20px;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    margin: 100px;
+}
+button {
+    background-color: greenyellow   ;
+    width: 100px;
+    height: 50px;
+    border-radius
+    : 45px;
+}
