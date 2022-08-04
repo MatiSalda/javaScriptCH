@@ -35,6 +35,7 @@ boton.addEventListener("click" , () => {
     } while (menu != 4); 
 })
 
+//Funcion para decir cuanto costará el envio segun la distancia del usuario.
 function calcularEnvio(){
     let ciudad
     do {
@@ -60,7 +61,7 @@ function calcularEnvio(){
 }
 
 
-
+//Array para guardar empresas 
 class Empresa {
     constructor(nombre,costo, valoracion){
 
@@ -77,6 +78,7 @@ const empresas= [empresa1,empresa2,empresa3]
 console.table(empresas)
 let cantEmpresas = empresas.length
 
+//Funcion para mostrar descripcion de las empresas
 function elegirEmpresa(){
     let elegir
     do{
@@ -99,7 +101,7 @@ function elegirEmpresa(){
  }
 
 
-
+//Funcion para según la distancia del usuario te muestre el costo del envio. 
 function distanciaDelUsuario(){
     const distancia = [0,100,300,500,1000,5000,10000,15000]
 
