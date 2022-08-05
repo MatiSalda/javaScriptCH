@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,26 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
 
-    <div><h1> Bienvenido, toque el botón para iniciar el calculo de envio</h1></div>
-
     <div>
-    <button id="submit"> Iniciar </button>
+        <h1 id="titulo"> Bienvenido, ingrese sesión para iniciar el calculo de envio</h1>
     </div>
 
+    <form id="iniciarSesion">
+        <label for="nombre">Nombre:</label>
+        <input type="text" placeholder="Lionel" id="nombre">
+        <label for="apellido">Apellido:</label>
+        <input type="text" placeholder="Messi" id="apellido">
+        <button type="submit"> Ingresar </button>
+    </form>
+    <div id="conteiner">
+    </div>
+    
+
+   
 <script src="script.js"></script>
 </body>
+
 </html>

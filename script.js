@@ -1,18 +1,37 @@
 //PROGRAMA PARA DEFINIR COSTO DE ENVIO
 
-
-
-
-
-
-
 let menu
 let nombre
 
+class Usuario {
+    constructor(nombre,apellido){
+        this.nombre=nombre
+        this.apellido=apellido
+    }
+}
+
+const arrayUsuario = []
+const login = document.getElementById("iniciarSesion") 
+
+login.addEventListener('submit', (event) => {
+event.preventDefault()
+let nombre=document.getElementById('nombre').value
+let apellido=document.getElementById('apellido').value
+const usuario = new Usuario(nombre, apellido)
+arrayUsuario.push(usuario)
+
+login.reset()
+let titulo = document.getElementById('titulo')
+let container = document.getElementById('conteiner')
+titulo.innerText = `Bienvenido ${usuario.nombre} ${usuario.apellido}`
+container.innerHTML =`<h2> Hola ${usuario.nombre}  </h2> <button type="submit"> iniciar </button>`
+})
+
 //Menu que se abre al hacer click en "iniciar" desde acá llamo a las funciones
-const boton = document.getElementById("submit")
+const boton = document.getElementById("conteiner")
 boton.addEventListener("click" , () => {
     do {
+
         menu= parseInt(prompt("Bienvenido al sistema de presupuesto de envios, elija la opcion que desee.\n\n 1.Ingresar cuenta \n 2.Empresas de envio \n 3 Consultas \n 4. Salir de la aplicacion"))
         
         switch(menu){
@@ -126,4 +145,7 @@ function distanciaDelUsuario(){
             alert("Ingrese un valor correcto.")
         }
 }
+
+
+
 
