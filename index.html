@@ -11,23 +11,33 @@
 
 <body>
 
-    <div>
+    <div class="tituloBoton">
         <h1 id="titulo"> Bienvenido, ingrese sesión para iniciar el calculo de envio</h1>
     </div>
 
     <form id="iniciarSesion">
-        <label for="nombre">Nombre:</label>
-        <input type="text" placeholder="Lionel" id="nombre">
-        <label for="apellido">Apellido:</label>
-        <input type="text" placeholder="Messi" id="apellido">
-        <button type="submit"> Ingresar </button>
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" placeholder="Lionel" id="nombre">
+            <label for="apellido">Apellido:</label>
+            <input type="text" placeholder="Messi" id="apellido">
+        </div>
+        <button type="submit" id="botoncito"> Ingresar </button>
     </form>
-    <div id="conteiner">
-    </div>
-    
 
-   
-<script src="script.js"></script>
+
+    <div id="conteiner">
+
+    </div>
+
+    <section>
+        <div class="alert">
+            <h3 id="alert"></h3>
+        </div>
+    </section>
+    <script src="script.js"></script>
 </body>
+
+
 
 </html>
