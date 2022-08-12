@@ -3,6 +3,7 @@
 let menu
 let nombre
 const alert = document.getElementById('alert')
+alert.style.display="none"
 
 class Usuario {
     constructor(nombre, apellido) {
@@ -20,11 +21,19 @@ login.addEventListener('submit', (event) => {
     let apellido = document.getElementById('apellido').value
     const usuario = new Usuario(nombre, apellido)
     arrayUsuario.push(usuario)
+    localStorage.setItem('usuarios', JSON.stringify(usuario))
+
+    
+
+    if (localStorage.getItem('usuarios') != '') {
+        login.style.display="none"
+    }
+let nombreUsuario = JSON.parse(localStorage.getItem('usuarios'))
 
     login.reset()
     let titulo = document.getElementById('titulo')
     let container = document.getElementById('conteiner')
-    titulo.innerText = `Bienvenido ${usuario.nombre} ${usuario.apellido}`
+    titulo.innerText = `Bienvenido ${nombreUsuario.nombre} ${nombreUsuario.apellido}`
     container.innerHTML = `<div class="botones" id="botones">
 <button id="calcular">Calcular envio</button>
 <button id="empresas">Empresas de envio</button>
@@ -38,6 +47,7 @@ login.addEventListener('submit', (event) => {
 
     const subContainer = document.getElementById('subContainer')
     calcular.addEventListener('click', () => {
+        alert.style.display="none"
         alert.innerHTML=''
         subContainer.innerHTML = `<div class="conteiner">
     <label for="consultaCiudad">¿De qué ciudad sos?</label>
@@ -64,6 +74,7 @@ login.addEventListener('submit', (event) => {
         })
     })
     empresas.addEventListener('click', () => {
+        alert.style.display="none"
         alert.innerHTML=''
         subContainer.innerHTML = `<div class="conteiner">
     <label for="consultaCiudad">¿Qué empresa elegis?</label>
@@ -87,6 +98,7 @@ login.addEventListener('submit', (event) => {
     })
 
     consultas.addEventListener('click', () => {
+        alert.style.display="none"
         alert.innerHTML=''
         subContainer.innerHTML = `<div class="conteiner">
     <label for="consultaCiudad"> Ingrese una distancia </label>
@@ -111,15 +123,18 @@ function calcularEnvio(ciudad) {
    
 
     if (ciudad == 1) {
+        alert.style.display="block"
         alert.innerHTML="El envio costará $500"
 
     } else if (ciudad == 2) {
+        alert.style.display="block"
         alert.innerHTML="El envio costará $800"
 
     } else if (ciudad == 3) {
+        alert.style.display="block"
         alert.innerHTML='Tocar el botón "Consultas" para más información '
     } else {
-
+        alert.style.display="block"
         alert.innerHTML="Ingrese una opción correcta"
     }
     
@@ -146,12 +161,16 @@ let cantEmpresas = empresas.length
 //Funcion para mostrar descripcion de las empresas
 function elegirEmpresa(elegir) {
     if (elegir == 1) {
+        alert.style.display="block"
         alert.innerHTML=`${empresa1.nombre} tiene un costo de ${empresa1.costo} y una valoracion de ${empresa1.valoracion}/5 estrellas.`
     } else if (elegir == 2) {
+        alert.style.display="block"
         alert.innerHTML=`${empresa2.nombre} tiene un costo de ${empresa2.costo} y una valoracion de ${empresa2.valoracion}/5 estrellas.`
     } else if (elegir == 3) {
+        alert.style.display="block"
         alert.innerHTML=`${empresa3.nombre} tiene un costo de ${empresa3.costo} y una valoracion de ${empresa3.valoracion}/5 estrellas.`
     } else {
+        alert.style.display="block"
         alert.innerHTML="Pone bien la opcion"
     }
 }
@@ -163,20 +182,29 @@ function distanciaDelUsuario(distUsuario) {
     resultadoDistancia = distancia.find(distArray => distArray >= distUsuario)
 
     if (resultadoDistancia == 100) {
+        alert.style.display="block"
         alert.innerHTML="El envio es gratis!"
     } else if (resultadoDistancia == 300) {
+        alert.style.display="block"
         alert.innerHTML="El envio costará $200"
     } else if (resultadoDistancia == 500) {
+        alert.style.display="block"
         alert.innerHTML="El envio costará $400"
     } else if (resultadoDistancia == 1000) {
+        alert.style.display="block"
         alert.innerHTML="El envio costará $700"
     } else if (resultadoDistancia == 5000) {
+        alert.style.display="block"
         alert.innerHTML="El envio costará $1500"
     } else if (resultadoDistancia == 10000) {
+        alert.style.display="block"
         alert.innerHTML="El envio costará $5000"
     } else if (distUsuario > 15000) {
+        alert.style.display="block"
         alert.innerHTML="No se puede realizar envio a esta distancia"
     } else {
+        alert.style.display="block"
         alert.innerHTML="Ingrese un valor correcto."
     }
 }
+
