@@ -63,14 +63,8 @@ let nombreUsuario = JSON.parse(localStorage.getItem('usuarios'))
         const botonCiudad = document.getElementById('enviarCiudad')
         const inputCiudad = document.getElementById('consultaCiudad')
 
-        console.log(botonCiudad)
-        console.log(inputCiudad)
-
-
         botonCiudad.addEventListener('click', () => {
             calcularEnvio(inputCiudad.value)
-
-            console.log(inputCiudad)
         })
     })
     empresas.addEventListener('click', () => {
@@ -155,7 +149,6 @@ const empresa2 = new Empresa("Andreani", "$400", "3.8")
 const empresa3 = new Empresa("OCA", "$700", "3.2")
 
 const empresas = [empresa1, empresa2, empresa3]
-console.table(empresas)
 let cantEmpresas = empresas.length
 
 //Funcion para mostrar descripcion de las empresas
