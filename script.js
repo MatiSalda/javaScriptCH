@@ -10,6 +10,8 @@ class Usuario {
         this.nombre = nombre
         this.apellido = apellido
     }
+
+    
 }
 
 const arrayUsuario = []
@@ -25,9 +27,16 @@ login.addEventListener('submit', (event) => {
 
     
 
-    if (localStorage.getItem('usuarios') != '') {
-        login.style.display="none"
-    }
+    // if (localStorage.getItem('usuarios') != '') {
+    //     login.style.display="none"
+    // }
+
+
+    // USO DE OPERADOR TERNARIO
+
+    localStorage.getItem('usuarios') != '' ? login.style.display="none"  :   login.style.display="block"
+
+
 let nombreUsuario = JSON.parse(localStorage.getItem('usuarios'))
 
     login.reset()
@@ -144,18 +153,32 @@ class Empresa {
     }
 }
 
-const empresa1 = new Empresa("Correo Argentino", "$300", "4,3")
+// const empresa1 = new Empresa("Correo Argentino", "$300", "4,3")
+// USO DE DESESTRUCTURACIÓN
+
+const empresa1 = {
+    nombre: "Correo Argentino",
+    costo: 300,
+    valoracion: 3.2
+}
+
+const {
+    nombre: nombre1,
+    costo: costo1,
+    valoracion: valoracion1
+} =empresa1
 const empresa2 = new Empresa("Andreani", "$400", "3.8")
 const empresa3 = new Empresa("OCA", "$700", "3.2")
 
 const empresas = [empresa1, empresa2, empresa3]
-let cantEmpresas = empresas.length
+
+
 
 //Funcion para mostrar descripcion de las empresas
 function elegirEmpresa(elegir) {
     if (elegir == 1) {
         alert.style.display="block"
-        alert.innerHTML=`${empresa1.nombre} tiene un costo de ${empresa1.costo} y una valoracion de ${empresa1.valoracion}/5 estrellas.`
+        alert.innerHTML=`${nombre1} tiene un costo de $${costo1} y una valoracion de ${valoracion1}/5 estrellas.`
     } else if (elegir == 2) {
         alert.style.display="block"
         alert.innerHTML=`${empresa2.nombre} tiene un costo de ${empresa2.costo} y una valoracion de ${empresa2.valoracion}/5 estrellas.`
