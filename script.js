@@ -25,12 +25,41 @@ login.addEventListener('submit', (event) => {
     arrayUsuario.push(usuario)
     localStorage.setItem('usuarios', JSON.stringify(usuario))
 
-    
+    Toastify({
+        text: "Bienvenido de nuevo.",
+        duration: 4000,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "#00c9c8",
+          borderRadius: "15px",
+          boxShadow: " box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1)"
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
 
-    // if (localStorage.getItem('usuarios') != '') {
-    //     login.style.display="none"
-    // }
+   
 
+      addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            Toastify({
+                text: 'Tenes que tocar el botón "Enviar."',
+                duration: 2000,
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "#00c9c8",
+                  borderRadius: "15px",
+                  boxShadow: " box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1)"
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
+        }
+    });
 
     // USO DE OPERADOR TERNARIO
 
@@ -44,9 +73,9 @@ let nombreUsuario = JSON.parse(localStorage.getItem('usuarios'))
     let container = document.getElementById('conteiner')
     titulo.innerText = `Bienvenido ${nombreUsuario.nombre} ${nombreUsuario.apellido}`
     container.innerHTML = `<div class="botones" id="botones">
-<button id="calcular">Calcular envio</button>
-<button id="empresas">Empresas de envio</button>
-<button id="consultas">Consultas</button>
+<button class="boton" id="calcular">Calcular envio</button>
+<button class="boton" id="empresas">Empresas de envio</button>
+<button class="boton" id="consultas">Consultas</button>
 </div>
 <div id="subContainer"></div>`
 
@@ -58,6 +87,9 @@ let nombreUsuario = JSON.parse(localStorage.getItem('usuarios'))
     calcular.addEventListener('click', () => {
         alert.style.display="none"
         alert.innerHTML=''
+
+        
+          
         subContainer.innerHTML = `<div class="conteiner">
     <label for="consultaCiudad">¿De qué ciudad sos?</label>
     <ol>
@@ -66,7 +98,7 @@ let nombreUsuario = JSON.parse(localStorage.getItem('usuarios'))
     <li>Otro</li>
 </ol>
     <input type="text" id="consultaCiudad">
-    <button type="submit" id="enviarCiudad">Enviar</button>
+    <button type="submit" class="boton" id="enviarCiudad">Enviar</button>
 </div>
    `
         const botonCiudad = document.getElementById('enviarCiudad')
@@ -87,7 +119,7 @@ let nombreUsuario = JSON.parse(localStorage.getItem('usuarios'))
     <li>OCA</li>
 </ol>
     <input type="text" id="consultaEmpresa">
-    <button type="submit" id="enviarEmpresa">Enviar</button>
+    <button type="submit" class="boton" id="enviarEmpresa">Enviar</button>
 </div>
    `
         const botonEmpresa = document.getElementById('enviarEmpresa')
@@ -107,7 +139,7 @@ let nombreUsuario = JSON.parse(localStorage.getItem('usuarios'))
     <label for="consultaCiudad"> Ingrese una distancia </label>
     
     <input type="text" id="consulta">
-    <button type="submit" id="enviarConsulta">Enviar</button>
+    <button type="submit" class="boton" id="enviarConsulta">Enviar</button>
 </div>
    `
         const consulta = document.getElementById('consulta')
@@ -119,6 +151,7 @@ let nombreUsuario = JSON.parse(localStorage.getItem('usuarios'))
         })
     })
 })
+
 
 
 //Funcion para decir cuanto costará el envio segun la distancia del usuario.
